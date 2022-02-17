@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "157583031393",
+    "project_id": "whc-fyp",
+    "storage_bucket": "whc-fyp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157583031393:android:1d3f89d7ae7487e4c2fe20",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157583031393-u6a2eik1ft6mr28dfhpjchvrj1m918gl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCck5foyvacHQnVIsSZP6InSBTlyvV8M4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157583031393-u6a2eik1ft6mr28dfhpjchvrj1m918gl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
