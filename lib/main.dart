@@ -72,6 +72,7 @@ class _login extends State<Login> {
   Future logIn() async {
     if (controllerEmail.text.isEmpty) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: "Please enter your email.",
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -80,6 +81,7 @@ class _login extends State<Login> {
     }
     else if (controllerPassword.text.isEmpty) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: "Please enter your password.",
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -95,6 +97,7 @@ class _login extends State<Login> {
         _toRegisterOTP(context);
       } on FirebaseAuthException catch (e) {
         Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
           msg: "The email and password doesn't match",
           backgroundColor: Colors.red,
           textColor: Colors.white,
@@ -113,9 +116,10 @@ class _login extends State<Login> {
       if (isExitWarning) {
         timeBackPressed = DateTime.now();
         Fluttertoast.showToast(
-            msg: "Press twice to exit the app",
-            backgroundColor: Colors.black,
-            textColor: Colors.white);
+          toastLength: Toast.LENGTH_LONG,
+          msg: "Press twice to exit the app",
+          backgroundColor: Colors.black,
+          textColor: Colors.white);
         return false;
       }
       return true;
@@ -341,6 +345,7 @@ class _register extends State<Register> {
       _toRegisterOTP(context);
     } on FirebaseAuthException catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: "The email address is in use by another account",
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -581,6 +586,7 @@ class _registerOTP extends State<RegisterOTP> {
       setState(() => resend = true);
     } catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -659,6 +665,7 @@ class _forgetPW extends State<ForgetPW> {
           email: controllerEmail.text.trim()
       );
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: "Password reset email sent",
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -667,6 +674,7 @@ class _forgetPW extends State<ForgetPW> {
       _toLogin(context);
     } on FirebaseAuthException catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -1027,6 +1035,7 @@ class _main extends State<Main> {
     if (num.isNotEmpty) {
       if (nci.length == num.length) {
         Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
           msg: "Loser or winner, it’s your choice! We are betting that you’re a winner!",
           backgroundColor: Colors.red,
           textColor: Colors.white,
@@ -1035,10 +1044,11 @@ class _main extends State<Main> {
       }
       else if (fb.length == num.length) {
         Fluttertoast.showToast(
-            msg: "Reward comes to those who persists! Don’t give up!",
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 30
+          toastLength: Toast.LENGTH_LONG,
+          msg: "Reward comes to those who persists! Don’t give up!",
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 30
         );
       }
     }
@@ -1142,9 +1152,10 @@ class _main extends State<Main> {
       if (isExitWarning) {
         timeBackPressed = DateTime.now();
         Fluttertoast.showToast(
-            msg: "Press twice to exit the app",
-            backgroundColor: Colors.black,
-            textColor: Colors.white);
+          toastLength: Toast.LENGTH_LONG,
+          msg: "Press twice to exit the app",
+          backgroundColor: Colors.black,
+          textColor: Colors.white);
         return false;
       }
       return true;
@@ -1427,6 +1438,7 @@ class _healthupdate extends State<HealthUpdate> {
           });
           if ((duration+ogduration) > 480) {
             Fluttertoast.showToast(
+              toastLength: Toast.LENGTH_LONG,
               msg: "Duration can't exceed 8 hr.",
               backgroundColor: Colors.red,
               textColor: Colors.white,
@@ -1456,25 +1468,28 @@ class _healthupdate extends State<HealthUpdate> {
                   docUser.update({'Redeem': true});
                 }
                 Fluttertoast.showToast(
-                    msg: "Congrats! You’re an achiever!",
-                    backgroundColor: Colors.red,
-                    textColor: Colors.white,
-                    fontSize: 30
+                  toastLength: Toast.LENGTH_LONG,
+                  msg: "Congrats! You’re an achiever!",
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 30
                 );
               } else {
                 Fluttertoast.showToast(
-                    msg: random(),
-                    backgroundColor: Colors.red,
-                    textColor: Colors.white,
-                    fontSize: 30
-                );
-              }
-            } else {
-              Fluttertoast.showToast(
+                  toastLength: Toast.LENGTH_LONG,
                   msg: random(),
                   backgroundColor: Colors.red,
                   textColor: Colors.white,
                   fontSize: 30
+                );
+              }
+            } else {
+              Fluttertoast.showToast(
+                toastLength: Toast.LENGTH_LONG,
+                msg: random(),
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 30
               );
             }
             _toHealth(context);
@@ -1483,10 +1498,11 @@ class _healthupdate extends State<HealthUpdate> {
       });
     } catch (e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -1575,18 +1591,20 @@ class _healthupdate extends State<HealthUpdate> {
                           }
                           if (duration < 0) {
                             Fluttertoast.showToast(
-                                msg: "Duration can't be less than 0 min.",
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 30
+                              toastLength: Toast.LENGTH_LONG,
+                              msg: "Duration can't be less than 0 min.",
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 30
                             );
                           }
                           else if (duration > 480) {
                             Fluttertoast.showToast(
-                                msg: "Duration can't exceed 8 hr.",
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 30
+                              toastLength: Toast.LENGTH_LONG,
+                              msg: "Duration can't exceed 8 hr.",
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 30
                             );
                           }
                           else {
@@ -1868,25 +1886,28 @@ class _dietupdate extends State<DietUpdate> {
                 docUser.update({'Redeem': true});
               }
               Fluttertoast.showToast(
-                  msg: "Congrats! You’re an achiever!",
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white,
-                  fontSize: 30
+                toastLength: Toast.LENGTH_LONG,
+                msg: "Congrats! You’re an achiever!",
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 30
               );
             } else {
               Fluttertoast.showToast(
-                  msg: random(),
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white,
-                  fontSize: 30
-              );
-            }
-          } else {
-            Fluttertoast.showToast(
+                toastLength: Toast.LENGTH_LONG,
                 msg: random(),
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
                 fontSize: 30
+              );
+            }
+          } else {
+            Fluttertoast.showToast(
+              toastLength: Toast.LENGTH_LONG,
+              msg: random(),
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              fontSize: 30
             );
           }
         }
@@ -1894,6 +1915,7 @@ class _dietupdate extends State<DietUpdate> {
       _toDiet(context);
     } catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -2256,16 +2278,18 @@ class _financeupdate extends State<FinanceUpdate> {
           docUser.update({'Amt': ((double.parse(controllerAmount.text))+ogamt)});
           docUser.update({'Goal': goal});
           Fluttertoast.showToast(
-              msg: random(),
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
-              fontSize: 30
+            toastLength: Toast.LENGTH_LONG,
+            msg: random(),
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 30
           );
           _toFinance(context);
         }
       });
     } catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -2343,26 +2367,29 @@ class _financeupdate extends State<FinanceUpdate> {
                           }
                           if (double.parse(controllerAmount.text) < 0) {
                             Fluttertoast.showToast(
-                                msg: "Expenses can't be less than SGD 0.",
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 30
+                              toastLength: Toast.LENGTH_LONG,
+                              msg: "Expenses can't be less than SGD 0.",
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 30
                             );
                           }
                           else if (decimals.length > 2) {
                             Fluttertoast.showToast(
-                                msg: "Expenses can't exceed 2 decimal place.",
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 30
+                              toastLength: Toast.LENGTH_LONG,
+                              msg: "Expenses can't exceed 2 decimal place.",
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 30
                             );
                           }
                           else if (controllerAmount.text == "-0") {
                             Fluttertoast.showToast(
-                                msg: "-0 is not a valid number.",
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 30
+                              toastLength: Toast.LENGTH_LONG,
+                              msg: "-0 is not a valid number.",
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 30
                             );
                           }
                           else{
@@ -2555,6 +2582,7 @@ class _socialupdate extends State<SocialUpdate> {
           });
           if ((duration+ogduration) > 960) {
             Fluttertoast.showToast(
+              toastLength: Toast.LENGTH_LONG,
               msg: "Duration can't exceed 16 hr.",
               backgroundColor: Colors.red,
               textColor: Colors.white,
@@ -2584,25 +2612,28 @@ class _socialupdate extends State<SocialUpdate> {
                   docUser.update({'Redeem': true});
                 }
                 Fluttertoast.showToast(
-                    msg: "Congrats! You’re an achiever!",
-                    backgroundColor: Colors.red,
-                    textColor: Colors.white,
-                    fontSize: 30
+                  toastLength: Toast.LENGTH_LONG,
+                  msg: "Congrats! You’re an achiever!",
+                  backgroundColor: Colors.red,
+                  textColor: Colors.white,
+                  fontSize: 30
                 );
               } else {
                 Fluttertoast.showToast(
-                    msg: random(),
-                    backgroundColor: Colors.red,
-                    textColor: Colors.white,
-                    fontSize: 30
-                );
-              }
-            } else {
-              Fluttertoast.showToast(
+                  toastLength: Toast.LENGTH_LONG,
                   msg: random(),
                   backgroundColor: Colors.red,
                   textColor: Colors.white,
                   fontSize: 30
+                );
+              }
+            } else {
+              Fluttertoast.showToast(
+                toastLength: Toast.LENGTH_LONG,
+                msg: random(),
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 30
               );
             }
             _toSocial(context);
@@ -2611,6 +2642,7 @@ class _socialupdate extends State<SocialUpdate> {
       });
     } catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -2703,14 +2735,16 @@ class _socialupdate extends State<SocialUpdate> {
                           }
                           if (duration < 0) {
                             Fluttertoast.showToast(
-                                msg: "Duration can't be less than 0 min.",
-                                backgroundColor: Colors.red,
-                                textColor: Colors.white,
-                                fontSize: 30
+                              toastLength: Toast.LENGTH_LONG,
+                              msg: "Duration can't be less than 0 min.",
+                              backgroundColor: Colors.red,
+                              textColor: Colors.white,
+                              fontSize: 30
                             );
                           }
                           else if (duration > 960) {
                             Fluttertoast.showToast(
+                              toastLength: Toast.LENGTH_LONG,
                               msg: "Duration can't exceed 16 hr.",
                               backgroundColor: Colors.red,
                               textColor: Colors.white,
@@ -2896,20 +2930,22 @@ class _goal extends State<Goal> with SingleTickerProviderStateMixin {
       docUser.update({'Conf': exercise_conf});
       docUser.update({'Goal': int.parse(controllerExercise.text)});
       Fluttertoast.showToast(
-          msg: "Update successfully",
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: "Update successfully",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
       askSupport(exercise_conf);
       controllerExercise.text = "";
       exercise_conf = 1;
     } catch (e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -2922,20 +2958,22 @@ class _goal extends State<Goal> with SingleTickerProviderStateMixin {
       docUser.update({'Conf': diet_conf});
       docUser.update({'Goal': int.parse(dropdownnum)});
       Fluttertoast.showToast(
-          msg: "Update successfully",
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: "Update successfully",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
       askSupport(diet_conf);
       changed = false;
       diet_conf = 1;
     } catch (e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -2948,16 +2986,18 @@ class _goal extends State<Goal> with SingleTickerProviderStateMixin {
       docUser.update({'Conf': finance_conf});
       docUser.update({'Goal': double.parse(controllerFinance.text)});
       Fluttertoast.showToast(
-          msg: "Update successfully",
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: "Update successfully",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
       askSupport(finance_conf);
       controllerFinance.text = "";
       finance_conf = 1;
     } catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -2974,20 +3014,22 @@ class _goal extends State<Goal> with SingleTickerProviderStateMixin {
       docUser.update({'Conf': social_conf});
       docUser.update({'Goal': int.parse(controllerSocial.text)});
       Fluttertoast.showToast(
-          msg: "Update successfully",
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: "Update successfully",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
       askSupport(social_conf);
       controllerSocial.text = "";
       social_conf = 1;
     } catch (e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -3205,18 +3247,20 @@ class _goal extends State<Goal> with SingleTickerProviderStateMixin {
                             if (controllerExercise.text != "") {
                               if (int.parse(controllerExercise.text) < 30) {
                                 Fluttertoast.showToast(
-                                    msg: "Goal can't be less than 30 min.",
-                                    backgroundColor: Colors.red,
-                                    textColor: Colors.white,
-                                    fontSize: 30
+                                  toastLength: Toast.LENGTH_LONG,
+                                  msg: "Goal can't be less than 30 min.",
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 30
                                 );
                               }
                               else if (int.parse(controllerExercise.text) > 480) {
                                 Fluttertoast.showToast(
-                                    msg: "Goal can't exceed 8 hr.",
-                                    backgroundColor: Colors.red,
-                                    textColor: Colors.white,
-                                    fontSize: 30
+                                  toastLength: Toast.LENGTH_LONG,
+                                  msg: "Goal can't exceed 8 hr.",
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 30
                                 );
                               }
                               else {
@@ -3525,18 +3569,20 @@ class _goal extends State<Goal> with SingleTickerProviderStateMixin {
                               }
                               if (double.parse(controllerFinance.text) < 1) {
                                 Fluttertoast.showToast(
-                                    msg: "Budget can't be less than SGD 1.",
-                                    backgroundColor: Colors.red,
-                                    textColor: Colors.white,
-                                    fontSize: 30
+                                  toastLength: Toast.LENGTH_LONG,
+                                  msg: "Budget can't be less than SGD 1.",
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 30
                                 );
                               }
                               else if (decimals.length > 2) {
                                 Fluttertoast.showToast(
-                                    msg: "Budget can't exceed 2 decimal place.",
-                                    backgroundColor: Colors.red,
-                                    textColor: Colors.white,
-                                    fontSize: 30
+                                  toastLength: Toast.LENGTH_LONG,
+                                  msg: "Budget can't exceed 2 decimal place.",
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 30
                                 );
                               }
                               else{
@@ -3695,18 +3741,20 @@ class _goal extends State<Goal> with SingleTickerProviderStateMixin {
                             if (controllerSocial.text != "") {
                               if (int.parse(controllerSocial.text) < 30) {
                                 Fluttertoast.showToast(
-                                    msg: "Goal can't be less than 30 min.",
-                                    backgroundColor: Colors.red,
-                                    textColor: Colors.white,
-                                    fontSize: 30
+                                  toastLength: Toast.LENGTH_LONG,
+                                  msg: "Goal can't be less than 30 min.",
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 30
                                 );
                               }
                               else if (int.parse(controllerSocial.text) > 960) {
                                 Fluttertoast.showToast(
-                                    msg: "Goal can't exceed 16 hr.",
-                                    backgroundColor: Colors.red,
-                                    textColor: Colors.white,
-                                    fontSize: 30
+                                  toastLength: Toast.LENGTH_LONG,
+                                  msg: "Goal can't exceed 16 hr.",
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 30
                                 );
                               }
                               else {
@@ -3809,6 +3857,7 @@ class _reward extends State<Reward> {
         data.quantity = 0;
       }
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: "Redeemed successfully",
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -3817,6 +3866,7 @@ class _reward extends State<Reward> {
       total = 0;
     } catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,
@@ -3827,14 +3877,6 @@ class _reward extends State<Reward> {
 
   spending(int spend) {
     return spend;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      readList();
-    });
   }
 
   @override
@@ -3961,6 +4003,7 @@ class _reward extends State<Reward> {
                         }
                         if (coins == 0) {
                           Fluttertoast.showToast(
+                            toastLength: Toast.LENGTH_LONG,
                             msg: "Insufficient coins",
                             backgroundColor: Colors.red,
                             textColor: Colors.white,
@@ -3970,6 +4013,7 @@ class _reward extends State<Reward> {
                         }
                         else if (total == 0) {
                           Fluttertoast.showToast(
+                            toastLength: Toast.LENGTH_LONG,
                             msg: "No reward selected",
                             backgroundColor: Colors.red,
                             textColor: Colors.white,
@@ -3979,6 +4023,7 @@ class _reward extends State<Reward> {
                         }
                         else if (coins < total) {
                           Fluttertoast.showToast(
+                            toastLength: Toast.LENGTH_LONG,
                             msg: "Insufficient coins",
                             backgroundColor: Colors.red,
                             textColor: Colors.white,
@@ -4185,11 +4230,13 @@ class _appointment extends State<Appointment> {
                 FirebaseFirestore.instance.collection("TrackApp/${user.email}/Appointment").doc("Appointment_${event.from}_${event.subject}").get().then((doc) => {
                   if (!doc.exists) {
                     Fluttertoast.showToast(
+                      toastLength: Toast.LENGTH_LONG,
                       msg: "Deleted successfully",
                       fontSize: 30
                     )
                   } else {
                     Fluttertoast.showToast(
+                      toastLength: Toast.LENGTH_LONG,
                       msg: "Failed to delete",
                       fontSize: 30
                     )
@@ -4225,8 +4272,8 @@ class _appointment extends State<Appointment> {
 
   @override
   void initState() {
-    super.initState();
     readAppt();
+    super.initState();
   }
 
   @override
@@ -4581,6 +4628,7 @@ class _appointmentupdate extends State<AppointmentUpdate> {
     try {
       if (event.from.isBefore(DateTime.now().add(const Duration(days:1)))) {
         Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
           msg: "Start time must be at least 24 hrs from now.",
           backgroundColor: Colors.red,
           textColor: Colors.white,
@@ -4589,6 +4637,7 @@ class _appointmentupdate extends State<AppointmentUpdate> {
       }
       else if (event.to.isAtSameMomentAs(event.from)) {
         Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
           msg: "Please select a range.",
           backgroundColor: Colors.red,
           textColor: Colors.white,
@@ -4597,6 +4646,7 @@ class _appointmentupdate extends State<AppointmentUpdate> {
       }
       else if (event.to.isBefore(event.from)) {
         Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
           msg: "Please select valid range.",
           backgroundColor: Colors.red,
           textColor: Colors.white,
@@ -4605,6 +4655,7 @@ class _appointmentupdate extends State<AppointmentUpdate> {
       }
       else if (event.to.difference(event.from) < const Duration(hours:1)) {
         Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
           msg: "The range must be at least 1 hr.",
           backgroundColor: Colors.red,
           textColor: Colors.white,
@@ -4626,10 +4677,11 @@ class _appointmentupdate extends State<AppointmentUpdate> {
                 SetOptions(merge : true)),
 
             Fluttertoast.showToast(
-                msg: "Request successfully",
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-                fontSize: 30
+              toastLength: Toast.LENGTH_LONG,
+              msg: "Request successfully",
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              fontSize: 30
             )
           }
         });
@@ -4637,6 +4689,7 @@ class _appointmentupdate extends State<AppointmentUpdate> {
       }
     } catch (e) {
       Fluttertoast.showToast(
+        toastLength: Toast.LENGTH_LONG,
         msg: e.toString(),
         backgroundColor: Colors.red,
         textColor: Colors.white,

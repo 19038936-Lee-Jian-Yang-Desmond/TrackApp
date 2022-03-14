@@ -33,6 +33,7 @@ class MainforAdmin extends StatelessWidget {
       if (isExitWarning) {
         timeBackPressed = DateTime.now();
         Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
           msg: "Press twice to exit the app",
           backgroundColor: Colors.black,
           textColor: Colors.white);
@@ -653,7 +654,7 @@ class goalsChecking extends State<GoalsChecking> with SingleTickerProviderStateM
                       x: data.id,
                       barRods: [
                         BarChartRodData(
-                          y: data.number,
+                          toY: data.number,
                           width: barWidth,
                           colors: [data.color],
                           borderRadius: const BorderRadius.only(
@@ -1277,10 +1278,11 @@ class _appointmentApproval extends State<AppointmentApproval> {
       _toAppointmentApproval(context);
     } catch(e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -1295,10 +1297,11 @@ class _appointmentApproval extends State<AppointmentApproval> {
       _toAppointmentApproval(context);
     } catch(e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -1312,10 +1315,11 @@ class _appointmentApproval extends State<AppointmentApproval> {
       _toAppointmentApproval(context);
     } catch(e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -1329,10 +1333,11 @@ class _appointmentApproval extends State<AppointmentApproval> {
       _toAppointmentApproval(context);
     } catch(e) {
       Fluttertoast.showToast(
-          msg: e.toString(),
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-          fontSize: 30
+        toastLength: Toast.LENGTH_LONG,
+        msg: e.toString(),
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 30
       );
     }
   }
@@ -1733,7 +1738,7 @@ class appointmentReport extends State<AppointmentReport> {
                   x: data.id,
                   barRods: [
                     BarChartRodData(
-                      y: data.number,
+                      toY: data.number,
                       width: barWidth,
                       colors: [data.color],
                       borderRadius: const BorderRadius.only(
